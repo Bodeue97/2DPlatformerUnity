@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource speedPowerUpSound, speedPowerEndSound;
     [SerializeField] private AudioSource jumpPowerUpSound, jumpPowerEndSound;
     private int maxEcts = 4;
-       private Coroutine speedCoroutine, jumpCoroutine;
+    private Coroutine speedCoroutine, jumpCoroutine;
     private int jumpCount = 2;
     private bool isGrounded, isJumping, isDoubleJumping;
     private int ects = 0;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         SpeedCount.text = "PRĘDKOŚĆ: " + movSpeed;
         JumpBoost.text = jumpSpeed > 11f ? "LEPSZY SKOK!!" : "";
-        ECTScount.text = "ECTS: " + ects + "/4";
+        ECTScount.text = "ECTS: " + ects + "/" + maxEcts;
     }
 
     private IEnumerator ReduceSpeedAfterDelay(float delay)
@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("Zaliczenie1") && ects == maxEcts)
         {
-            
+
             rb.bodyType = RigidbodyType2D.Static;
             StartCoroutine(LoadSceneAfterSound("BazyDanychLevel2", 3f));
             ects = 0;
@@ -140,6 +140,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Static;
             StartCoroutine(LoadSceneAfterSound("AnalizaMatematycznaLevel3", 3f));
+            ects = 0;
+        }
+         if (collision.CompareTag("Zaliczenie") && ects == 0)
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+            StartCoroutine(LoadSceneAfterSound("KoniecScene", 3f));
             ects = 0;
         }
     }

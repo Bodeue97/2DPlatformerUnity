@@ -68,8 +68,10 @@
     <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\TestThreatMoveXY.cs" />
     <Compile Include="Assets\PlayerDeath.cs" />
+    <Compile Include="Assets\StartMenu.cs" />
     <Compile Include="Assets\TestThreatMoveY.cs" />
     <Compile Include="Assets\TestThreatMoveX.cs" />
+    <Compile Include="Assets\WejschowkaRush.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

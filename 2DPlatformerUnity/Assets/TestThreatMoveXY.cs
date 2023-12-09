@@ -69,11 +69,11 @@ public class TestThreatMoveSquare : MonoBehaviour
         float movement = moveSpeed * Time.deltaTime;
         
         if (inverseMovement)
-            movement *= -1; // Inverts the movement
+            movement *= -1; 
 
         if (reverseMovement)
         {
-            movement *= -1; // Reverses the movement without inversion
+            movement *= -1; 
             if (direction == Vector2.right)
                 direction = Vector2.left;
             else if (direction == Vector2.left)
