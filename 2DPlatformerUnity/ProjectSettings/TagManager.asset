@@ -9,6 +9,9 @@ TagManager:
   - Threat
   - Rektorskie
   - Zdalne
+  - Zaliczenie
+  - Zaliczenie1
+  - Zaliczenie2
   layers:
   - Default
   - TransparentFX

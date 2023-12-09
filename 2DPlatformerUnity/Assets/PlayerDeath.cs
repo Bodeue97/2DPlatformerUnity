@@ -7,6 +7,8 @@ public class PlayerDeath : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D rb;
+    [SerializeField] private AudioSource deathSound;
+
 
 
     private void Start()
@@ -14,11 +16,19 @@ public class PlayerDeath : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
+    private void Update(){
+        if (Input.GetKeyDown("r")){
+            RestartLevel();
+        }
+    }
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
 
         if (collision.gameObject.CompareTag("Threat"))
         {
+            deathSound.Play();
+
             animator.SetTrigger("death");
             rb.bodyType = RigidbodyType2D.Static;
 
